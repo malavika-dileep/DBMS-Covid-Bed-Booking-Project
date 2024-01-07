@@ -1,0 +1,21 @@
+<!-- templates/dashboard.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Dashboard</h1>
+        <p class="lead">Welcome, {{ current_user.username }}!</p>
+        <hr class="my-4">
+        <h3>Your Bookings:</h3>
+        <ul class="list-group">
+            {% for booking in bookings %}
+                <li class="list-group-item">{{ booking.name }} - {{ booking.hospital }} - {{ booking.date }}</li>
+            {% endfor %}
+        </ul>
+        <p class="mt-4">
+            <a href="{{ url_for('book') }}" class="btn btn-primary btn-lg">Book a Slot</a>
+            <a href="{{ url_for('logout') }}" class="btn btn-danger btn-lg">Logout</a>
+        </p>
+    </div>
+{% endblock %}

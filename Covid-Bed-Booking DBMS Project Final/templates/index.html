@@ -1,0 +1,15 @@
+<!-- templates/index.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to COVID Bed Booking</h1>
+        <p class="lead">Explore the available features and functionalities.</p>
+        <hr class="my-4">
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{{ url_for('login') }}" role="button">Login</a>
+            <a class="btn btn-success btn-lg" href="{{ url_for('signup') }}" role="button">Sign Up</a>
+        </p>
+    </div>
+{% endblock %}

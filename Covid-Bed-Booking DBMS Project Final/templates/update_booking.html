@@ -1,0 +1,25 @@
+<!-- templates/update_booking.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Update Booking - Covid Bed Booking{% endblock %}
+
+{% block content %}
+    <h1>Update Booking</h1>
+    <form action="{{ url_for('update_booking', booking_id=booking.id) }}" method="post">
+        {{ csrf_token() }}
+        <div class="mb-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ booking.name }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="hospital" class="form-label">Hospital:</label>
+            <input type="text" class="form-control" id="hospital" name="hospital" value="{{ booking.hospital }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="date" class="form-label">Date:</label>
+            <input type="text" class="form-control" id="date" name="date" value="{{ booking.date }}" placeholder="YYYY-MM-DD" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Booking</button>
+    </form>
+{% endblock %}
